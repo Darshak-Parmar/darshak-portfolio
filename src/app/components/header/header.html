@@ -1,0 +1,39 @@
+<header class="header">
+  <div class="header-container container">
+    <a href="#" class="logo">
+      Darshak<span class="text-teal">.</span>
+    </a>
+    
+    <nav class="nav-links">
+      <ul>
+        <li>
+          <a href="#home" class="nav-item">
+            <span class="bracket">(</span> <span class="nav-text">HOME</span> <span class="bracket">)</span>
+          </a>
+        </li>
+        <li><a href="#about" class="nav-item"><span class="nav-text">ABOUT</span></a></li>
+        <li><a href="#projects" class="nav-item"><span class="nav-text">WORKS</span></a></li>
+        <li><a href="#experience" class="nav-item"><span class="nav-text">EXPERIENCE</span></a></li>
+      </ul>
+    </nav>
+    
+    <!-- Header right side clean -->
+
+    <button class="menu-btn" (click)="toggleMenu()">
+      <svg *ngIf="!isMenuOpen" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      <svg *ngIf="isMenuOpen" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+  </div>
+  
+  <div class="mobile-menu" [class.open]="isMenuOpen">
+    <nav>
+      <ul>
+        <li><a href="#home" (click)="closeMenu()">Home</a></li>
+        <li><a href="#about" (click)="closeMenu()">About</a></li>
+        <li><a href="#projects" (click)="closeMenu()">Works</a></li>
+        <li><a href="#experience" (click)="closeMenu()">Experience</a></li>
+        <li><a href="#contact" (click)="closeMenu()">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

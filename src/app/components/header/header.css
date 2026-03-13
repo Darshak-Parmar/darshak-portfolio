@@ -1,0 +1,153 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding-top: 2rem;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif; /* Elegant logo styling */
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.nav-links ul {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.bracket {
+  color: var(--accent-teal);
+  font-weight: 300;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all var(--transition-fast);
+}
+
+.nav-item:hover .bracket, 
+.nav-item:focus .bracket {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Simulate the "active" pill state from the image just by hovering */
+.nav-item:hover {
+  color: var(--accent-teal);
+}
+
+.nav-links a:hover {
+  color: var(--accent-teal);
+}
+
+.header-contact {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.contact-email {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.icon-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-white);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* Soft float */
+  transition: transform var(--transition-fast);
+}
+
+.icon-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(54, 128, 116, 0.15); /* Teal shadow */
+}
+
+.menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  z-index: 1001;
+  padding: 0.5rem;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: all var(--transition-normal);
+  z-index: 999;
+  visibility: hidden;
+}
+
+.mobile-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  text-align: center;
+}
+
+.mobile-menu nav a {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.mobile-menu nav a:hover {
+  color: var(--accent-teal);
+}
+
+@media (max-width: 992px) {
+  .nav-links, .header-contact {
+    display: none;
+  }
+  .menu-btn {
+    display: block;
+  }
+}

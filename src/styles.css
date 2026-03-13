@@ -1,0 +1,195 @@
+/* Global Styles - Bright Creative Portfolio */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+
+:root {
+  /* Color Palette - Bright Creative */
+  --bg-primary: #fcf9ef; /* Creamy off-white */
+  --bg-secondary: #f4ecdb; /* Slightly darker cream for contrast areas */
+  --surface-white: #ffffff;
+  
+  --text-primary: #1d3b41; /* Dark Teal for headings */
+  --text-secondary: #5a6d71; /* Muted Teal-Gray for body text */
+  --text-light: #8e9e9f;
+  
+  --accent-teal: #368074;
+  --accent-orange: #ea764a;
+  --accent-yellow: #f3c45b;
+
+  /* Typography */
+  /* DM Sans for clean, modern readability, similar to the reference */
+  --font-body: 'DM Sans', sans-serif;
+  --font-display: 'DM Sans', sans-serif;
+  --font-serif: 'Playfair Display', serif; /* For slight elegant contrast if needed */
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2.5rem;
+  --spacing-lg: 6rem;
+  --spacing-xl: 10rem;
+
+  /* Borders & Shadows */
+  --radius-sm: 12px;
+  --radius-md: 24px;
+  --radius-full: 9999px;
+  
+  --border-light: 1px solid rgba(29, 59, 65, 0.08);
+  
+  --shadow-float: 0 20px 40px -10px rgba(29, 59, 65, 0.05);
+  --shadow-sm: 0 4px 12px rgba(29, 59, 65, 0.03);
+  
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-secondary); /* Default text color is the muted teal */
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--transition-fast);
+}
+
+ul {
+  list-style: none;
+}
+
+/* Utility Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-sm);
+}
+
+.section {
+  padding-top: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+}
+
+.section-title {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
+  max-width: 600px;
+}
+
+/* Scroll Animation Reveal Classes */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: none;
+  gap: 0.5rem;
+}
+
+.btn-primary {
+  background: var(--text-primary);
+  color: var(--surface-white);
+}
+
+.btn-primary:hover {
+  background: var(--accent-teal);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -5px rgba(54, 128, 116, 0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--text-primary);
+}
+
+.btn-outline:hover {
+  background: var(--text-primary);
+  color: var(--surface-white);
+}
+
+.about-skills-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1.5fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  .about-skills-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+/* Color Utilities */
+.text-teal { color: var(--accent-teal); }
+.text-orange { color: var(--accent-orange); }
+.text-yellow { color: var(--accent-yellow); }
+.text-dark { color: var(--text-primary); }
+
+.bg-white { background: var(--surface-white); }
+.shadow-card { box-shadow: var(--shadow-float); }
+.radius-card { border-radius: var(--radius-md); }
